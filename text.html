@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sticky Navigation with Logo Ribbon</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        height: 2000px; /* just to enable scrolling */
+      }
+
+      /* Logo Ribbon */
+      .logo-ribbon {
+        width: 100%;
+        height: 70px;
+        background: #4caf50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        transition: top 0.3s ease;
+      }
+
+      /* Navigation Ribbon */
+      .nav-ribbon {
+        width: 100%;
+        height: 60px;
+        background: #333;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        z-index: 999;
+        transition: top 0.3s ease;
+      }
+
+      .nav-ribbon.sticky {
+        top: 0;
+      }
+
+      /* Content spacing */
+      .content {
+        margin-top: 130px; /* space for ribbons */
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo-ribbon" id="logoRibbon">Logo Ribbon</div>
+    <div class="nav-ribbon" id="navRibbon">Navigation Ribbon</div>
+
+    <div class="content">
+      <h1>Scroll Down to See the Effect</h1>
+      <p>
+        Keep scrolling to see the logo ribbon disappear and the navigation
+        ribbon stick to the top.
+      </p>
+      <p>Scroll up to see the logo ribbon return.</p>
+    </div>
+
+    <script>
+      let lastScroll = 0;
+      const logoRibbon = document.getElementById("logoRibbon");
+      const navRibbon = document.getElementById("navRibbon");
+
+      window.addEventListener("scroll", () => {
+        let currentScroll = window.scrollY;
+
+        if (currentScroll > lastScroll) {
+          // Scrolling Down
+          logoRibbon.style.top = "-70px";
+          navRibbon.classList.add("sticky");
+        } else {
+          // Scrolling Up
+          logoRibbon.style.top = "0";
+          navRibbon.classList.remove("sticky");
+        }
+
+        lastScroll = currentScroll;
+      });
+    </script>
+  </body>
+</html>
