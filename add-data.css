@@ -138,10 +138,47 @@ header {
   outline: var(--border-clr);
   cursor: pointer;
 }
+
+fieldset {
+  padding: 1rem;
+  margin-bottom: 10px;
+}
+legend {
+  background-color: var(--secondary-clr);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  color: var(--question-cont-clr);
+}
+
+.btn-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+.add-more-btn-style {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  font-size: 2rem;
+  background-color: var(--secondary-clr);
+  color: var(--question-cont-clr);
+  border: 1px solid var(--light-blue);
+  cursor: pointer;
+}
+.add-more-btn-style:active {
+  background-color: #0170c0;
+}
+.submit-btn {
+  margin-top: 24px;
+}
+
 .add-question-container {
   /* display: none; */
 }
-.with-clue,
-.without-clue {
+.with-clues,
+.without-clues,
+.matching-table,
+.changing-sentence {
   display: none;
 }

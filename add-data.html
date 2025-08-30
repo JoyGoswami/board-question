@@ -15,6 +15,7 @@
     <main>
       <div class="container">
         <div class="form-container">
+          <!-- select question type form  -->
           <form class="select-question-type">
             <select name="question-type" id="question-type required">
               <option value="none" disabled selected>
@@ -25,6 +26,9 @@
                 Fill in the blanks without clues
               </option>
               <option value="matching-table">Matching Table</option>
+              <option value="changing-sentence">
+                Changing / CompleteingSentence / Tag
+              </option>
               <option value="narration-or-punctuation">
                 Narration or Punctuation
               </option>
@@ -34,8 +38,11 @@
               <option value="graphs">Graphs</option>
             </select>
           </form>
+          <!-- select question type form  -->
+
           <div class="add-question-container">
             <form class="add-question-form">
+              <!-- board and year selection  -->
               <div class="select-board-year">
                 <select name="board" id="board" required>
                   <option value="none" disabled selected>Select Board</option>
@@ -65,6 +72,9 @@
                   <option value="none">2014</option>
                 </select>
               </div>
+              <!-- board and year selection  -->
+
+              <!-- question title  -->
               <div class="input-cont">
                 <label class="title-label" for="question-title"
                   >Question Title</label
@@ -76,11 +86,14 @@
                   required
                 ></textarea>
               </div>
+              <!-- question title  -->
+
+              <!-- question number and type  -->
               <div class="input-cont">
                 <select
                   class="form-input-style"
                   name="question-number-type"
-                  id="question-title"
+                  id="question-number-type"
                   required
                 >
                   <option value="none" selected disabled>
@@ -91,7 +104,10 @@
                   <option value="03 Table Matching">03 Table Matching</option>
                 </select>
               </div>
-              <div class="type-container with-clue">
+              <!-- question number and type  -->
+
+              <!-- with clue  -->
+              <div class="type-container with-clues">
                 <div class="input-cont">
                   <label for="clues"> Add Clues (With space) </label>
                   <textarea
@@ -111,28 +127,125 @@
                     required
                   ></textarea>
                 </div>
+              </div>
+              <!-- with clue  -->
+
+              <!-- without clue  -->
+              <div class="type-container without-clues">
                 <div class="input-cont">
-                  <label for="completed"
-                    ><input type="checkbox" name="completed" id="completed" />
-                    Is it completed?</label
-                  >
-                </div>
-                <div class="input-cont">
-                  <input class="submit-btn" type="submit" value="submit" />
+                  <label for="text"> Add text </label>
+                  <textarea
+                    class="resize-textarea form-input-style"
+                    name="text"
+                    id="text"
+                    required
+                  ></textarea>
                 </div>
               </div>
-              <div class="type-container table">
+              <!-- without clue  -->
+
+              <!-- table  -->
+              <div class="type-container matching-table">
+                <!-- first box -->
                 <fieldset>
                   <legend>First Box</legend>
-                  <label for="line-one">Enter line One</label>
-                  <input
-                    class="form-input-style"
-                    type="text"
-                    name="line-one"
-                    id="line-one"
-                  />
+                  <div class="first-box-input-cont">
+                    <div class="input-cont">
+                      <label for="box-one-line-1">Enter Line</label>
+                      <input
+                        class="form-input-style line-one"
+                        type="text"
+                        name="box-one-line-1"
+                        id="box-one-line-1"
+                      />
+                    </div>
+                  </div>
+                  <div class="btn-cont">
+                    <button class="add-more-btn one" type="button">+</button>
+                  </div>
                 </fieldset>
+                <!-- first box -->
+
+                <!-- second box -->
+                <fieldset>
+                  <legend>Second Box</legend>
+                  <div class="second-box-input-cont">
+                    <div class="input-cont">
+                      <label for="box-two-line-1">Enter Line</label>
+                      <input
+                        class="form-input-style line-two"
+                        type="text"
+                        name="box-two-line-1"
+                        id="box-two-line-1"
+                      />
+                    </div>
+                  </div>
+                  <div class="btn-cont">
+                    <button class="add-more-btn two" type="button">+</button>
+                  </div>
+                </fieldset>
+                <!-- second box -->
+
+                <!-- second box -->
+                <fieldset>
+                  <legend>Third Box</legend>
+                  <div class="third-box-input-cont">
+                    <div class="input-cont">
+                      <label for="box-three-line-1">Enter Line</label>
+                      <input
+                        class="form-input-style line-three"
+                        type="text"
+                        name="box-three-line-1"
+                        id="box-three-line-1"
+                      />
+                    </div>
+                  </div>
+                  <div class="btn-cont">
+                    <button class="add-more-btn three" type="button">+</button>
+                  </div>
+                </fieldset>
+                <!-- second box -->
               </div>
+              <!-- table  -->
+
+              <!-- changing sentences  -->
+              <div class="type-container changing-sentence">
+                <div class="question-cont">
+                  <div class="input-cont">
+                    <label for="a">Question a:</label>
+                    <input
+                      type="text"
+                      name="a"
+                      id="a"
+                      class="form-input-style sentence-count"
+                    />
+                  </div>
+                </div>
+                <div class="btn-cont">
+                  <button
+                    class="add-more-btn-sentence add-more-btn-style"
+                    type="button"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <!-- changing sentences  -->
+
+              <!-- completed check box -->
+              <div class="input-cont">
+                <label for="completed"
+                  ><input type="checkbox" name="completed" id="completed" /> Is
+                  it completed?</label
+                >
+              </div>
+              <!-- completed check box -->
+
+              <!-- submit btn  -->
+              <div class="input-cont" bis_skin_checked="1">
+                <input class="submit-btn" type="submit" value="submit" />
+              </div>
+              <!-- submit btn  -->
             </form>
           </div>
         </div>
