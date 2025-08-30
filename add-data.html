@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Data</title>
+    <link rel="stylesheet" href="add-data.css" />
+  </head>
+  <body>
+    <header class="">
+      <div class="logo box-shadow">
+        <p>Public Tutor</p>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="form-container">
+          <form class="select-question-type">
+            <select name="question-type" id="question-type required">
+              <option value="none" disabled selected>
+                What type of question you want to add
+              </option>
+              <option value="with-clues">Fill in the blanks with clues</option>
+              <option value="without-clues">
+                Fill in the blanks without clues
+              </option>
+              <option value="matching-table">Matching Table</option>
+              <option value="narration-or-punctuation">
+                Narration or Punctuation
+              </option>
+              <option value="composition">
+                Composition / Paragraph / Letters
+              </option>
+              <option value="graphs">Graphs</option>
+            </select>
+          </form>
+          <div class="add-question-container">
+            <form class="add-question-form">
+              <div class="select-board-year">
+                <select name="board" id="board" required>
+                  <option value="none" disabled selected>Select Board</option>
+                  <option value="Dhaka Board">Dhaka Board</option>
+                  <option value="Rajshahi Board">Rajshahi Board</option>
+                  <option value="Comilla Board">Comilla Board</option>
+                  <option value="Jessore Board">Jessore Board</option>
+                  <option value="Chittagong Board">Chittagong Board</option>
+                  <option value="Barisal Board">Barisal Board</option>
+                  <option value="Sylhet Board">Sylhet Board</option>
+                  <option value="Dinajput Board">Dinajput Board</option>
+                  <option value="Mymensingh Board">Mymensingh Board</option>
+                </select>
+                <select name="year" id="year" required>
+                  <option value="none" disabled selected>Select Year</option>
+                  <option value="none">2025</option>
+                  <option value="none">2024</option>
+                  <option value="none">2023</option>
+                  <option value="none">2022</option>
+                  <option value="none">2021</option>
+                  <option value="none">2020</option>
+                  <option value="none">2019</option>
+                  <option value="none">2018</option>
+                  <option value="none">2017</option>
+                  <option value="none">2016</option>
+                  <option value="none">2015</option>
+                  <option value="none">2014</option>
+                </select>
+              </div>
+              <div class="input-cont">
+                <label class="title-label" for="question-title"
+                  >Question Title</label
+                >
+                <textarea
+                  class="title-textarea resize-textarea form-input-style"
+                  name="question-title"
+                  id="question-title"
+                  required
+                ></textarea>
+              </div>
+              <div class="input-cont">
+                <select
+                  class="form-input-style"
+                  name="question-number-type"
+                  id="question-title"
+                  required
+                >
+                  <option value="none" selected disabled>
+                    Select Question number and Type
+                  </option>
+                  <option value="01 With Clue">01 With Clue</option>
+                  <option value="02 Without Clue">02 Without Clue</option>
+                  <option value="03 Table Matching">03 Table Matching</option>
+                </select>
+              </div>
+              <div class="type-container with-clue">
+                <div class="input-cont">
+                  <label for="clues"> Add Clues (With space) </label>
+                  <textarea
+                    class="resize-textarea form-input-style"
+                    name="clues"
+                    id="clues"
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="input-cont">
+                  <label for="text"> Add text </label>
+                  <textarea
+                    class="resize-textarea form-input-style"
+                    name="text"
+                    id="text"
+                    required
+                  ></textarea>
+                </div>
+                <div class="input-cont">
+                  <label for="completed"
+                    ><input type="checkbox" name="completed" id="completed" />
+                    Is it completed?</label
+                  >
+                </div>
+                <div class="input-cont">
+                  <input class="submit-btn" type="submit" value="submit" />
+                </div>
+              </div>
+              <div class="type-container table">
+                <fieldset>
+                  <legend>First Box</legend>
+                  <label for="line-one">Enter line One</label>
+                  <input
+                    class="form-input-style"
+                    type="text"
+                    name="line-one"
+                    id="line-one"
+                  />
+                </fieldset>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="add-data.js"></script>
+  </body>
+</html>
