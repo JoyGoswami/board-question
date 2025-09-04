@@ -1,21 +1,6 @@
-// Page ribbon control
-const logoRibbon = document.querySelector(".logo");
-const navRibbon = document.querySelector("nav");
+import { allBoardQuestionsSortedArr } from "./sortData.js";
 
-let lastScroll = 0;
-window.addEventListener("scroll", () => {
-  let currentScroll = window.scrollY;
-
-  if (currentScroll > lastScroll) {
-    logoRibbon.style.top = "-90px";
-    navRibbon.classList.add("sticky");
-  } else {
-    logoRibbon.style.top = "0px";
-    navRibbon.classList.remove("sticky");
-  }
-  lastScroll = currentScroll;
-});
-
+const filteredQuestionsArr = [];
 // Form control
 const filterControlForm = document.querySelector(".filter-control-form");
 
@@ -24,4 +9,82 @@ filterControlForm.addEventListener("change", () => {
 
   // Form data to object
   const data = Object.fromEntries(formData.entries());
+  console.log(data);
+
+  const { board, type, year } = data;
+  handleFilter(board, year, type);
+
+  // if (board === "all") {
+  //   if (year === "all") {
+  //     if (type === "all") {
+  //       allBoardQuestionsSortedArr.forEach((sortedQuestions) => {
+  //         const filtered = sortedQuestions.filter((question) => {
+  //           return question;
+  //         });
+  //         filteredQuestionsArr.push(filtered);
+  //         console.log(filteredQuestionsArr);
+  //       });
+  //       displayData(filteredQuestionsArr);
+  //       console.log("all board, all year, all type");
+  //     } else {
+  //       console.log("all board, all year, specific type");
+  //     }
+  //   } else {
+  //     if (type === "all") {
+  //       console.log("all board, specific year, all type");
+  //     } else {
+  //       console.log("all board, specific year, specific type");
+  //     }
+  //   }
+  // } else {
+  //   if (year === "all") {
+  //     if (type === "all") {
+  //       console.log("specific board, all year, all type");
+  //     } else {
+  //       console.log("specific board, all year, specific type");
+  //     }
+  //   } else {
+  //     if (type === "all") {
+  //       console.log("specific board, specific year, all type");
+  //     } else {
+  //       console.log("specific board, specific year, specific type");
+  //     }
+  //   }
+  // }
 });
+
+console.log(allBoardQuestionsSortedArr);
+// allBoardQuestionsSortedArr.forEach((data) => {
+//   console.log(data.filter((d) => d.board === "Dhaka Board" && d.year === ""));
+// });
+
+function displayData(dataArr) {
+  console.log("hi", dataArr);
+}
+
+// It filters the data depending on user provided form data
+function handleFilter(board, year, type) {
+  const boardName = board.split("-").join(" ");
+  const yearName = year.split("-").join(" ");
+  const typeName = type.split("-").join(" ");
+  // before inserting empty the array
+  filteredQuestionsArr.splice(0, filteredQuestionsArr.length);
+
+  allBoardQuestionsSortedArr.forEach((dataArr) => {
+    const filteredData = dataArr.filter((data) => {
+      // if board === "all" it will not filter the data
+      // instead return the all board data
+      // If board === "Dhaka Board"
+      // it will return only dhaka board data
+      const matchBoard = board === "all" || data.board === boardName;
+      const matchYear = year === "all" || data.year === yearName;
+      const matchType = type === "all" || data.question_type === typeName;
+
+      return matchBoard && matchYear && matchType;
+    });
+
+    if (filteredData.length > 0) {
+      filteredQuestionsArr.push(filteredData);
+    }
+  });
+}

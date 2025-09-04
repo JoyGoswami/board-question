@@ -69,25 +69,26 @@
     </div>
 
     <script>
-      let lastScroll = 0;
-      const logoRibbon = document.getElementById("logoRibbon");
-      const navRibbon = document.getElementById("navRibbon");
+      const data = [
+        { board: "dhaka", year: "2022", type: "mcq" },
+        { board: "dhaka", year: "2023", type: "written" },
+        { board: "rajshahi", year: "2022", type: "mcq" },
+        { board: "mymensingh", year: "2023", type: "written" },
+        // more data...
+      ];
 
-      window.addEventListener("scroll", () => {
-        let currentScroll = window.scrollY;
+      function handleFilter(board, year, type) {
+        const filtered = data.filter((item) => {
+          const matchBoard = board === "null" || item.board === board;
+          const matchYear = year === "null" || item.year === year;
+          const matchType = type === "null" || item.type === type;
+          return matchBoard && matchYear && matchType;
+        });
 
-        if (currentScroll > lastScroll) {
-          // Scrolling Down
-          logoRibbon.style.top = "-70px";
-          navRibbon.classList.add("sticky");
-        } else {
-          // Scrolling Up
-          logoRibbon.style.top = "0";
-          navRibbon.classList.remove("sticky");
-        }
-
-        lastScroll = currentScroll;
-      });
+        console.log(filtered);
+        return filtered;
+      }
+      handleFilter("null", "null", "null");
     </script>
   </body>
 </html>
