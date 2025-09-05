@@ -84,19 +84,92 @@ function handleFilter(board, year, type) {
 }
 
 function displayData(dataArr) {
+  const separatePartAorBArr = [];
   console.log(dataArr);
+  dataArr.forEach((data) => {
+    const a = separatePartAorB(data, "a");
+    const b = separatePartAorB(data, "b");
+    separatePartAorBArr.push([a, b]);
+  });
+  createQuestion(separatePartAorBArr);
+}
+
+function createQuestion(questionDataArr) {
+  const questionContainer = document.querySelector(".question-container");
+
+  console.log(questionDataArr);
+  questionDataArr.forEach((data) => {
+    console.log(data);
+    let boardName = data[0][0].board || data[1][0].board;
+    let yearName = data[0][0].year || data[1][0].year;
+    let partName = data[0][0].partName || data[1][0].partName;
+    console.log(partName);
+
+    const questionEl = createElements("div", ["question"], null);
+
+    createQuestinTitle(boardName, yearName, questionEl);
+
+    if (data[0].length > 0) {
+      data[0].forEach((data) => {
+        console.log(data);
+      });
+    }
+    if (data[1].length > 0) {
+      data[1].forEach((data) => {
+        console.log(data);
+      });
+    }
+    console.log(data);
+    questionContainer.append(questionEl);
+  });
+}
+
+function createQuestinTitle(boardName, yearName, parentEl) {
+  const questionDetailsEl = createElements("div", ["question-details"], null);
+
+  const boardNameEl = createElements(
+    "h2",
+    ["board-name"],
+    `${boardName} ${yearName}`
+  );
+  const subjectNameEl = createElements(
+    "p",
+    ["subject-name"],
+    "English Second Paper"
+  );
+
+  questionDetailsEl.append(boardNameEl, subjectNameEl);
+  parentEl.append(questionDetailsEl);
+
+  //  questionDetailsEl;
+}
+
+function createElements(element, elClassArr, elTextContent) {
+  const createEl = document.createElement(element);
+  if (elClassArr !== null) {
+    elClassArr.forEach((classes) => {
+      createEl.classList.add(classes);
+    });
+  }
+  if (elTextContent !== null) {
+    createEl.textContent = elTextContent;
+  }
+  return createEl;
 }
 
 // This separetes part a or b
 function separatePartAorB(array, partName) {
-  console.log("partname", partName);
   let partFiltered;
-  array.forEach((dataArr) => {
-    partFiltered = dataArr.filter((data) => {
-      console.log("data", data.part);
-      const partArr = data.part === partName;
-      return partArr;
-    });
+  // array.forEach((dataArr) => {
+  //   partFiltered = dataArr.filter((data) => {
+  //     console.log("data", data.part);
+  //     const partArr = data.part === partName;
+  //     return partArr;
+  //   });
+  // });
+  partFiltered = array.filter((data) => {
+    const partArr = data.part === partName;
+    return partArr;
   });
   return partFiltered;
 }
