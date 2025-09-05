@@ -1,6 +1,7 @@
 import { allBoardQuestionsSortedArr } from "./sortData.js";
 
-const filteredQuestionsArr = [];
+const filteredQuestionsArr = [...allBoardQuestionsSortedArr];
+displayData(filteredQuestionsArr);
 // Form control
 const filterControlForm = document.querySelector(".filter-control-form");
 
@@ -13,6 +14,8 @@ filterControlForm.addEventListener("change", () => {
 
   const { board, type, year } = data;
   handleFilter(board, year, type);
+
+  displayData(filteredQuestionsArr);
 
   // if (board === "all") {
   //   if (year === "all") {
@@ -53,15 +56,6 @@ filterControlForm.addEventListener("change", () => {
   // }
 });
 
-console.log(allBoardQuestionsSortedArr);
-// allBoardQuestionsSortedArr.forEach((data) => {
-//   console.log(data.filter((d) => d.board === "Dhaka Board" && d.year === ""));
-// });
-
-function displayData(dataArr) {
-  console.log("hi", dataArr);
-}
-
 // It filters the data depending on user provided form data
 function handleFilter(board, year, type) {
   const boardName = board.split("-").join(" ");
@@ -87,4 +81,22 @@ function handleFilter(board, year, type) {
       filteredQuestionsArr.push(filteredData);
     }
   });
+}
+
+function displayData(dataArr) {
+  console.log(dataArr);
+}
+
+// This separetes part a or b
+function separatePartAorB(array, partName) {
+  console.log("partname", partName);
+  let partFiltered;
+  array.forEach((dataArr) => {
+    partFiltered = dataArr.filter((data) => {
+      console.log("data", data.part);
+      const partArr = data.part === partName;
+      return partArr;
+    });
+  });
+  return partFiltered;
 }
