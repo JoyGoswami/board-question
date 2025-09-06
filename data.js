@@ -171,7 +171,7 @@ export const boardQuestionsHSC = [
       "Read the passage and then write the antonym or synonym of the words as directed:",
     question_type: "Antonym or Synonym",
     clues: [
-      `There can be no progress without efforts. Life loses its interest if there is no struggle. For example, games become dull if there is no competition in them and if the result is easily foreseen. No matter we win the game or lose it. The keener the contest, the greater the enjoyment. A victory is not a real triumph unless both the sides are equally matched. Whether we like it or not, life is a continuous competitive examination.`,
+      `There can be no /progress| without /efforts|. Life loses its /interest| if there is no /struggle|. For example, games become /dull| if there is no /competition| in them and if the result is /easily| foreseen. No matter we /win| the game or lose it. The keener the contest, the greater the /enjoyment|. A /victory| is not a /real| triumph unless both the sides are /equally| matched. Whether we /like| it or not, life is a /continuous| competitive examination.`,
     ],
     question: [
       "(a) progress – (synonym)",
@@ -421,7 +421,7 @@ export const boardQuestionsHSC = [
       "Read the passage and then write the antonym or synonym of the words as directed:",
     question_type: "Antonym or Synonym",
     clues: [
-      `Sincerity is the essential element of life. Since it is the root of success it is the quality of great men. They know its importance in human life. A sincere person is concerned about the outcome of his deeds. He has a good intention. People would like to trust a sincere person as he does not prove false. So, he usually, wins respect of others. A sincere person is always eager to possess a truthful mind. friendly and real personality. With these qualities he can overcome many difficulties in life. He can also recognize the intrinsic value of something. His good deeds are recognized and praised everywhere. Undoubtedly a sincere person is a trustworthy person.`,
+      `Sincerity is the essential element of life. Since it is the root of /success| it is the quality of /great| men. They know its /importance| in human life. A sincere person is concerned about the /outcome| of his deeds. He has a good /intention|. People would like to /trust| a sincere person as he does not /prove| false. So, he usually, wins /respect| of others. A sincere person is always /eager| to possess a truthful mind. friendly and real personality. With these qualities he can /overcome| many difficulties in life. He can also recognize the intrinsic /value| of something. His good /deeds| are recognized and /praised| everywhere. Undoubtedly a /sincere| person is a trustworthy person.`,
     ],
     question: [
       "(a) success (antonym)",

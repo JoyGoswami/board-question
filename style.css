@@ -125,9 +125,16 @@ main {
   justify-content: flex-start;
   margin-bottom: 20px;
 }
+.mark {
+  margin-left: auto;
+}
 .question-no,
 .blank {
-  width: 40px;
+  /* width: 40px; */
+  padding-right: 5px;
+}
+.question-items {
+  margin-bottom: 24px;
 }
 .question-title-container,
 .question-body-container {
